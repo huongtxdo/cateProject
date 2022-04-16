@@ -1,5 +1,6 @@
 from itemDrink import Drink
 from itemFood import Food
+from itemToy import Toy
 
 
 class Cat():
@@ -12,6 +13,8 @@ class Cat():
         self.maxmp = 0
         self.mp = 0
         self.defense = 0
+        self.attack = 0
+        self.dead = False
 
 # all the methods that return information
     def get_name(self):
@@ -38,9 +41,14 @@ class Cat():
 
     def set_maxhp(self, value):
         self.maxhp = value
+        if not self.hp:
+            self.hp = self.maxhp
 
     def set_maxmp(self, value):
         self.maxmp = value
+        if not self.mp:
+            self.mp = self.maxmp
+   
 
 # methods to use items
     def eat(self, food):
@@ -48,20 +56,20 @@ class Cat():
         heal the cat
         """
         temp = self.hp + food.get_hp()
-        if temp < self.maxhp:
-            self.hp = temp
-        else:
-            self.hp = self.maxhp
+        self.hp = min(temp, self.maxhp)
 
     def drink(self, drink):
         """
         regenerate cat's mana
         """
         temp = self.mp + drink.get_mp()
-        if temp < self.maxmp:
-            self.mp = temp
-        else:
-            self.mp = self.maxmp
+        self.mp = min(temp, self.maxmp)
+
+    def equip(self, toy):
+        """
+        only for catMain, equipped toys increase attack
+        """
+        self.attack = toy.get_attackPoint()
 
     def regenerate(self):
         """
@@ -70,5 +78,12 @@ class Cat():
         self.hp = self.maxmp
         self.mp = self.maxmp
 
+# methods for losing hp, mp,...
+    def get_hit(self, value):
+        if self.hp > value:
+            self.hp = self.hp - value
+        else:
+            self.hp = 0
+            self.dead = True
     
 

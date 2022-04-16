@@ -1,6 +1,6 @@
 # Y2_2022_80443_Cate
 
-## Checkpoint1 
+## Checkpoint2
 
 ## Current properties
 
