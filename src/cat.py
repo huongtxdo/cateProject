@@ -1,11 +1,10 @@
 class Cat():
 
-    def __init__(self, name, level):
+    def __init__(self, name):
         self.set_name(name)
-        self.level = level
         self.maxhp = 0
         self.maxmp = 0
-        self.defense = 0
+        self.set_defense
         self.attack = 0
         self.dead = False
 
@@ -19,7 +18,7 @@ class Cat():
     def get_mp(self):
         return self.mp
 
-    def get_def(self):
+    def get_defense(self):
         return self.defense
 
 # methods to set name, maxhp and maxmp  
@@ -36,6 +35,9 @@ class Cat():
         self.maxmp = value
         if not self.mp:
             self.mp = self.maxmp
+
+    def set_defense(self):
+        pass
    
 
 # methods to use items

@@ -1,6 +1,9 @@
 import random
 import datetime
+import math
 from cat import Cat 
+from catMain import CatMain
+from catAbility import CatAbility
 
 """
 catFellow is the cat characters that player can recruit
@@ -8,38 +11,22 @@ catFellow is the cat characters that player can recruit
 
 class CatFellow(Cat):
 
-    abilitiesMP = {
-        "Act cute": 1,
-        "Act coy": 1,
-        "Blind": 1,
-        "Bite": 2,
-        "Ignore": 2,
-        "Purr": 1,
-        "Skeme": 2,
-    }
-
-    cat_abilities = {
-        "Britt the British Shorthair": "Act coy",
-        "Scotty the Scottish Fold": "Act cute",
-        "Sia the Siamese": "Skeme",
-        "Manny the Maine Coon": "",
-        "Benny the Bengal": "",
-    }
-
-# seed for randomizer
-
 # catFellow's HP is randomed
-
-    def __init__(self, name, level):
+    def __init__(self, name, catMain):
         super().__init__(name)
-        self.set_maxhp(level)
+        self.set_maxhp()
+        self.level = catMain.get_level()
+        self.defense = 1.1 * catMain.get_defense/1.2
         self.set_ability
 
 # functions for setting
-
     def set_maxhp(self):
-        lowerHP = self.level * 10 - 3
-        upperHP = self.level * 10 + 3
+        if not self.maxhp:
+            lowerHP = 15
+            upperHP = 18
+        else:
+            lowerHP = self.maxhp + 9
+            upperHP = self.maxhp + 11
         seedling = int(datetime.datetime.utcnow().timestamp())
         random.seed(seedling)
         self.maxhp = random.randint(lowerHP, upperHP)
@@ -48,9 +35,10 @@ class CatFellow(Cat):
 
     def set_ability(self):
         if self.name in self.cat_abilities.keys():
-            self.ability = self.cat_abilities[self.name]
+            abilityName = CatAbility.cat_abilities[self.name]
+            self.ability = CatAbility(abilityName)
         else: 
-            raise ValueError("Invalid cat's name")
+            raise ValueError("Cannot find ability of this cat's name")
 
 # functions for losing MP by effect:
     def lose_MP(self, value):
@@ -59,10 +47,11 @@ class CatFellow(Cat):
 
 #functions for using abilities:
     def use_ability(self):
-        abilityMP = self.abilitiesMP[self.ability]
+        abilityMP = CatAbility.abilitiesMP[self.ability]
         if self.mp < abilityMP:
             raise ValueError("{} doesn't have enough mana to use their ability.".format(self.name))
         else:
+            
             
 
 
