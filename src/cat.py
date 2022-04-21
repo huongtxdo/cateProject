@@ -65,12 +65,6 @@ class Cat():
         temp = self.mp + drink.get_mp()
         self.mp = min(temp, self.maxmp)
 
-    def equip(self, toy):
-        """
-        only for catMain, equipped toys increase attack
-        """
-        self.attack = toy.get_attackPoint()
-
     def regenerate(self):
         """
         Return the cat to the original state

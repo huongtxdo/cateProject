@@ -1,14 +1,16 @@
-class Food():
+from item import Item
+
+class Food(Item):
 
     """
     Food is used to regenerate hp
     """
 
-    food_description = {
+    item_description = {
         "royal k9": "Despite its name, it serves its purpose"
     }
 
-    food_hp = {
+    item_value = {
         "royal k9": 5
     }
 
@@ -26,13 +28,13 @@ class Food():
         return self.description
 
     def set_hp(self, name):
-        if name in self.food_hp.keys():
-            self.hp = self.food_hp[name]
+        if name in self.item_value.keys():
+            self.hp = self.item_value[name]
         else:
             raise ValueError("Invalid food's name")
 
     def set_description(self, name):
-        if name in self.food_description.keys():
-            self.description = self.food_description[name]
+        if name in self.item_description.keys():
+            self.description = self.item_description[name]
         else:
             raise ValueError("Invalid food's name")

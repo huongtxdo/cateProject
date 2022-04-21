@@ -7,7 +7,7 @@ class Toy():
     Toys are only usedd by catMain, toys are like weapons
     """
 
-    toys_description = {
+    item_description = {
         "laser": "A fun toy can be deadly too, blind your enemies or distract them with the laser toy!",
         "feather wand": "Nothing beats the classics, wave this in front of your enemies to confuse them!",
         "robotic wand": "",
@@ -17,7 +17,7 @@ class Toy():
         "ball tower": "",
     }
 
-    toys_attackPoint = {
+    item_value = {
         "laser": "2",
         "feather wand": "3"
     }
@@ -41,7 +41,7 @@ class Toy():
 # functions for setting information
 
     def set_description(self, name):
-        if name in self.toys_description.keys():
-            self.description = self.toys_description[name]
+        if name in self.item_description.keys():
+            self.description = self.item_description[name]
         else:
             raise ValueError("Invalid toy's name")
