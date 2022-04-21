@@ -12,11 +12,14 @@ class Drink(Item):
 
     item_value = {
         "water": 1,
-        "milk": 2
+        "milk": 2,
+        "holy water": 3,
+        "holy milk": 4
     }
 
     def __init__(self, name):
         self.name = name
+        self.set_description()
         self.set_mp()
 
 # functions for getting
@@ -24,7 +27,7 @@ class Drink(Item):
     def get_mp(self):
         return self.mp
 
-    def get_description():
+    def get_description(self):
         return self.description
 
 # functions for setting
@@ -34,8 +37,8 @@ class Drink(Item):
         else:
             raise ValueError("Invalid drink's name")
 
-    def set_description(self, name):
-        if name in self.item_description.keys():
-            self.descrpiption = self.item_description[name]
+    def set_description(self):
+        if self.name in self.item_description.keys():
+            self.descrpiption = self.item_description[self.name]
         else:
             raise ValueError("Invalid drink's name")

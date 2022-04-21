@@ -18,8 +18,8 @@ class Toy():
     }
 
     item_value = {
-        "laser": "2",
-        "feather wand": "3"
+        "laser": 2,
+        "feather wand": 3
     }
 
     def __init__(self, name):
@@ -40,8 +40,14 @@ class Toy():
 
 # functions for setting information
 
-    def set_description(self, name):
-        if name in self.item_description.keys():
-            self.description = self.item_description[name]
+    def set_description(self):
+        if self.name in self.item_description.keys():
+            self.description = self.item_description[self.name]
+        else:
+            raise ValueError("Invalid toy's name")
+
+    def set_attackPoint(self):
+        if self.name in self.item_value.keys():
+            self.attackPoint = self.item_value[self.name]
         else:
             raise ValueError("Invalid toy's name")

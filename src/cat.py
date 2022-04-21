@@ -1,17 +1,10 @@
-from itemDrink import Drink
-from itemFood import Food
-from itemToy import Toy
-
-
 class Cat():
 
-    def __init__(self, name):
+    def __init__(self, name, level):
         self.set_name(name)
-        self.description = ""
+        self.level = level
         self.maxhp = 0
-        self.hp = 0
         self.maxmp = 0
-        self.mp = 0
         self.defense = 0
         self.attack = 0
         self.dead = False
@@ -19,9 +12,6 @@ class Cat():
 # all the methods that return information
     def get_name(self):
         return self.name
-
-    def get_description(self):
-        return self.description
 
     def get_hp(self):
         return self.hp
@@ -39,10 +29,8 @@ class Cat():
         else:
             self.name = name
 
-    def set_maxhp(self, value):
-        self.maxhp = value
-        if not self.hp:
-            self.hp = self.maxhp
+    def set_maxhp(self):
+        pass
 
     def set_maxmp(self, value):
         self.maxmp = value
@@ -73,7 +61,7 @@ class Cat():
         self.mp = self.maxmp
 
 # methods for losing hp, mp,...
-    def get_hit(self, value):
+    def lose_HP(self, value):
         if self.hp > value:
             self.hp = self.hp - value
         else:

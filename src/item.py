@@ -7,18 +7,13 @@ class Item():
 # functions for getting
 
     def get_name(self):
-        return self.name
+        return self.name 
 
     def get_description(self):
         return self.description
 
     def get(self):
         return self.value
-
-
-
-
-
 
 # functions for setting
 

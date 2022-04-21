@@ -16,6 +16,7 @@ class Food(Item):
 
     def __init__(self, name):
         self.name = name
+        self.set_description()
         self.set_hp(name)
 
     def get_name(self):
