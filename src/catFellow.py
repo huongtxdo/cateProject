@@ -51,9 +51,4 @@ class CatFellow(Cat):
         if self.mp < abilityMP:
             raise ValueError("{} doesn't have enough mana to use their ability.".format(self.name))
         else:
-            
-            
-
-
-    
-        
+            pass
