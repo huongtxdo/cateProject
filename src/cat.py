@@ -3,14 +3,22 @@ class Cat():
     def __init__(self, name):
         self.set_name(name)
         self.maxhp = 0
+        self.hp = 0
         self.maxmp = 0
-        self.set_defense
+        self.defense = 0
         self.attack = 0
+        self.level = 1
         self.dead = False
 
 # all the methods that return information
     def get_name(self):
         return self.name
+
+    def get_maxhp(self):
+        return self.maxhp
+
+    def get_maxmp(self):
+        return self.maxmp
 
     def get_hp(self):
         return self.hp
@@ -21,6 +29,9 @@ class Cat():
     def get_defense(self):
         return self.defense
 
+    def get_level(self):
+        return self.level
+
 # methods to set name, maxhp and maxmp  
     def set_name(self, name):
         if not name:
@@ -28,17 +39,8 @@ class Cat():
         else:
             self.name = name
 
-    def set_maxhp(self):
-        pass
-
-    def set_maxmp(self, value):
-        self.maxmp = value
-        if not self.mp:
-            self.mp = self.maxmp
-
     def set_defense(self):
-        pass
-   
+        pass  
 
 # methods to use items
     def eat(self, food):

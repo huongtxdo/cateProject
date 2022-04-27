@@ -3,13 +3,13 @@ import random
 class CatAbility():
 
     abilitiesMP = {
-        "Act cute": 1, #dog loses 
-        "Act coy": 1, #
-        "Blind": 1, #
+        "Act cute": 1, #all dogs lose the will to fight, 
+        "Act coy": 1, #this cat will always 
+        "Blind": 1, #all dogs become blind, have 50% chance to miss the attack
         "Bite": 2, #inflict damage to dog
         "Ignore": 2, #
         "Purr": 1,
-        "Skeme": 2,
+        "Scheme": 2,
     }
 
     cat_abilities = {

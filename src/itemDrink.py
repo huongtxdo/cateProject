@@ -7,7 +7,9 @@ class Drink(Item):
     """
     item_description = {
         "water": "Don't forget to leave your cats clean water everyday",
-        "milk": "Should be lactofree"
+        "milk": "Should be lactofree",
+        "holy water": "As much as a sinner themselves, cats can use some holy water as well!",
+        "holy milk": "Deluxe edition of holy water! Cats wash away their sins. Enjoyably!"
     }
 
     item_value = {
