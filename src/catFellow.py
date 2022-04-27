@@ -21,27 +21,26 @@ class CatFellow(Cat):
         self.defense = 1.1 * catMain.get_defense()/1.3
         #self.set_ability()
         self.hp = self.maxhp
+        self.maxmp = 10
 
 # functions for setting
     def set_maxhp(self):
-        if not self.maxhp:
-            lowerHP = 15
-            upperHP = 18
-        else:
-            lowerHP = self.maxhp + 9
-            upperHP = self.maxhp + 11
+        lowerHP = 15
+        upperHP = 18
         seedling = int(datetime.datetime.utcnow().timestamp())
         random.seed(seedling)
         self.maxhp = random.randint(lowerHP, upperHP)
-        # if not self.hp:
-        #     self.hp = self.maxhp  
 
-    # def set_ability(self):
-    #     if self.name in self.cat_abilities.keys():
-    #         abilityName = CatAbility.cat_abilities[self.name]
-    #         self.ability = CatAbility(abilityName)
-    #     else: 
-    #         raise ValueError("Cannot find ability of this cat's name")
+    def level_up(self):
+        self.level += 1
+        lowerHP = self.maxhp + 9
+        upperHP = self.maxhp + 11
+        seedling = int(datetime.datetime.utcnow().timestamp())
+        random.seed(seedling)
+        self.maxhp = random.randint(lowerHP, upperHP) 
+        self.hp = self.maxhp
+        self.maxmp += 5
+        self.mp = self.maxmp
 
 # functions for losing MP by effect:
     def lose_MP(self, value):
@@ -50,9 +49,4 @@ class CatFellow(Cat):
 
 #functions for using abilities:
     def use_ability(self, target):
-        # abilityMP = CatAbility.abilitiesMP[self.ability]
-        # if self.mp < abilityMP:
-        #     raise ValueError("{} doesn't have enough mana to use their ability.".format(self.name))
-        # else:
-        #     pass
         pass

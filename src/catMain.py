@@ -15,38 +15,50 @@ class CatMain(Cat):
         self.xp = 0
         self.maxhp = 18
         self.hp = self.maxhp
-        self.cateCoin = 0
+        self.coin = 0
         self.weapon = None
         self.attack = 1
+        self.allies = []
 
-#functions for setting
-    def set_maxhp(self):
-        if not self.maxhp:
-            self.maxhp = 18
-        else:
-            self.maxhp += 10
-        self.hp = self.maxhp
+# fucntions for getting
+
+    def get_attack(self):
+        return self.attack
+    
+    def get_weapon(self):
+        return self.weapon
+
+    def get_coin(self):
+        return self.coin
+
+    def get_xp(self):
+        return self.xp
+
+# other functions
 
     def level_up(self):
         self.level += 1
         self.maxhp += 10
         self.hp = self.maxhp
-        self.attack += 2
+        self.attack += 1.6
+        self.defense += 1.3
+        self.xp -= 100
+        for ally in self.allies:
+            ally.level += 1
+    
+    def add_coin(self, value):
+        self.coin +=  value
 
-    def set_atk_value(self, level):
-        self.attack = level * 1.6
+    def add_xp(self, value):
+        self.xp += value 
 
-    def set_defense(self):
-        self.defense = self.level * 1.3
-
-    def increase_level(self):
-        if self.xp >= 100:
-            self.level += math.floor(self.xp/100)
-
-# other functions
     def equip(self, toy):
         """
         only for catMain, equipped toys increase attack
         """
-        self.attack += toy.get_attackPoint()
-        self.wearpon = toy
+        self.attack += toy.get()
+        self.weapon = toy
+
+# function to recruit allies
+    def recruit(self, ally):
+        self.allies.append(ally)

@@ -1,10 +1,9 @@
-from re import M
+from item import Item
 
-
-class Toy():
+class Toy(Item):
 
     """
-    Toys are only usedd by catMain, toys are like weapons
+    Toys are only used by catMain, toys are like weapons
     """
 
     item_description = {
@@ -19,35 +18,17 @@ class Toy():
 
     item_value = {
         "laser": 2,
-        "feather wand": 3
+        "feather wand": 3,
+        "robotic wand": 3.5,
+        "cuddly pillow": 4,
+        "moving stuffed fish": 5,
+        "stuffed mouse": 6,
+        "ball tower": 10,
     }
 
     def __init__(self, name):
-        self.name = name
-        self.set_description(name)
-        self.attackPoint = 0
+        super().__init__(name)
+        # self.description = self.item_description[self.name]
+        # self.value = self.item_value[self.name]
 
-# functions for getting information
 
-    def get_name(self):
-        return self.name
-
-    def get_description(self):
-        return self.description
-
-    def get_attackPoint(self):
-        return self.attackPoint
-
-# functions for setting information
-
-    def set_description(self):
-        if self.name in self.item_description.keys():
-            self.description = self.item_description[self.name]
-        else:
-            raise ValueError("Invalid toy's name")
-
-    def set_attackPoint(self):
-        if self.name in self.item_value.keys():
-            self.attackPoint = self.item_value[self.name]
-        else:
-            raise ValueError("Invalid toy's name")

@@ -1,8 +1,9 @@
 class Item():
 
     def __init__(self, name):
-        self.set_name(name)
-        self.description
+        self.name = name
+        self.description = self.item_description[name]
+        self.value = self.item_value[name]
 
 # functions for getting
 
@@ -14,17 +15,3 @@ class Item():
 
     def get(self):
         return self.value
-
-# functions for setting
-
-    def set_name(self, name):
-        if name:
-            self.name = name
-        else:
-            raise ValueError("Item's name cannot be empty")
-
-    def set_description(self, name):
-        if name in self.item_description:
-            self.description = self.item_description[name]
-        else: 
-            raise ValueError("Invalid name")

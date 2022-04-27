@@ -2,7 +2,7 @@ import unittest
 
 from cat import Cat
 from catFellow import CatFellow
-from catFellow1 import BritishShorthair, ScottishFold
+from catFellowType import BritishShorthair, ScottishFold
 from itemFood import Food
 
 
