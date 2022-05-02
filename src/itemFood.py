@@ -7,11 +7,15 @@ class Food(Item):
     """
 
     item_description = {
-        "royal k9": "Despite its name, it serves its purpose"
+        "Brat": "Despite its name, it serves its purpose",
+        "Perfect Fat": "",
+        "Coshiba": ""
     }
 
     item_value = {
-        "royal k9": 5
+        "Brat": 5,
+        "Perfect Fat": 6,
+        "Coshiba": 7
     }
 
     def __init__(self, name):

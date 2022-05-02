@@ -1,7 +1,4 @@
-import math
 from cat import Cat
-from item import Item
-from catAbility import CatAbility
 
 """
 catMain is the player's avatar
@@ -19,6 +16,7 @@ class CatMain(Cat):
         self.weapon = None
         self.attack = 1
         self.allies = []
+        self.defense = 1
 
 # fucntions for getting
 
@@ -34,6 +32,12 @@ class CatMain(Cat):
     def get_xp(self):
         return self.xp
 
+    def get_allies(self):
+        return self.allies
+
+    def get_defense(self):
+        return self.defense
+
 # other functions
 
     def level_up(self):
@@ -44,10 +48,10 @@ class CatMain(Cat):
         self.defense += 1.3
         self.xp -= 100
         for ally in self.allies:
-            ally.level += 1
+            ally.level_up()
     
     def add_coin(self, value):
-        self.coin +=  value
+        self.coin += value
 
     def add_xp(self, value):
         self.xp += value 
@@ -58,6 +62,12 @@ class CatMain(Cat):
         """
         self.attack += toy.get()
         self.weapon = toy
+
+    def use(self, gadget):
+        """
+        only for catMain, use gadgets with various effects
+        """
+        gadget(self)
 
 # function to recruit allies
     def recruit(self, ally):

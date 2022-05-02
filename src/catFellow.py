@@ -1,9 +1,6 @@
 import random
 import datetime
-import math
 from cat import Cat 
-from catMain import CatMain
-from catAbility import CatAbility
 
 """
 catFellow is the cat characters that player can recruit
@@ -22,6 +19,8 @@ class CatFellow(Cat):
         #self.set_ability()
         self.hp = self.maxhp
         self.maxmp = 10
+        self.mp = self.maxmp
+        catMain.recruit(self)
 
 # functions for setting
     def set_maxhp(self):

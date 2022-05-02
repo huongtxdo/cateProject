@@ -1,5 +1,6 @@
 from catFellow import CatFellow
 from catAbility import CatAbility
+from catMain import *
 
 """
 catFellow1: British Shorthair

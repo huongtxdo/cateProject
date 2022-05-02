@@ -8,7 +8,7 @@ class Cat():
         self.defense = 0
         self.attack = 0
         self.level = 1
-        self.dead = False
+        self.alive = True 
 
 # all the methods that return information
     def get_name(self):
@@ -32,15 +32,15 @@ class Cat():
     def get_level(self):
         return self.level
 
+    def is_alive(self):
+        return self.alive
+
 # methods to set name, maxhp and maxmp  
     def set_name(self, name):
         if not name:
             self.name = "MeowLead"   
         else:
             self.name = name
-
-    def set_defense(self):
-        pass  
 
 # methods to use items
     def eat(self, food):
@@ -63,6 +63,10 @@ class Cat():
         """
         self.hp = self.maxmp
         self.mp = self.maxmp
+        self.revive()
+
+    def revive(self):
+        self.alive = True
 
 # methods for losing hp, mp,...
     def lose_hp(self, value):
@@ -70,7 +74,7 @@ class Cat():
             self.hp = self.hp - value
         else:
             self.hp = 0
-            self.dead = True
+            self.alive = False
     
     def increase_hp(self, value):
         temp = self.hp + value
