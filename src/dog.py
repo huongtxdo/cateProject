@@ -2,16 +2,12 @@ class Dog():
  
     def __init__(self, name):
         self.name = name
-        self.maxhp = 0
-        self.hp = 0
-        self.maxmp = 0
         self.defense = 0
         self.attackPoint = 0
-        self.level = 1
         self.alive = True
 
 # all the methods that return information
-    def get_name(self):
+    def get_name(self): 
         return self.name
 
     def get_maxhp(self):
@@ -22,9 +18,6 @@ class Dog():
 
     def get_hp(self):
         return self.hp
-
-    def get_mp(self):
-        return self.mp
 
     def get_defense(self):
         return self.defense

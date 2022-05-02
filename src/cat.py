@@ -2,12 +2,6 @@ class Cat():
 
     def __init__(self, name):
         self.set_name(name)
-        self.maxhp = 0
-        self.hp = 0
-        self.maxmp = 0
-        self.defense = 0
-        self.attack = 0
-        self.level = 1
         self.alive = True 
 
 # all the methods that return information
@@ -61,12 +55,17 @@ class Cat():
         """
         Return the cat to the original state
         """
-        self.hp = self.maxmp
+        self.hp = self.maxhp
         self.mp = self.maxmp
         self.revive()
 
     def revive(self):
         self.alive = True
+
+    def die(self):
+        self.alive = False
+        self.hp = 0
+        self.mp = 0
 
 # methods for losing hp, mp,...
     def lose_hp(self, value):
@@ -79,3 +78,7 @@ class Cat():
     def increase_hp(self, value):
         temp = self.hp + value
         self.hp = min(temp, self.maxhp)
+
+    def get_hit(self, value):
+        amount = max(value - self.defense, 0) 
+        
