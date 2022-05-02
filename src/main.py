@@ -13,7 +13,7 @@ def main():
     scottie = ScottishFold("Scottie", cat_main)
     
     cat_main.add_coin(100)
-    cat_main.add_xp(101)
+    cat_main.add_xp(100)
     cat_main.level_up()
     cat_list = [cat_main, brittie, scottie]
 
