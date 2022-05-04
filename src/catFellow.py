@@ -30,9 +30,6 @@ class CatFellow(Cat):
         self.maxmp += 5
         self.mp = self.maxmp
 
-    def get_ability_type(self):
-        return self.ability_type
-
 # functions for losing MP by effect:
     def lose_MP(self, value):
         temp = self.mp - value

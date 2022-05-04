@@ -26,6 +26,9 @@ class Cat():
     def get_level(self):
         return self.level
 
+    def get_ability_type(self):
+        return self.ability_type
+
     def is_alive(self):
         return self.alive
 
@@ -70,15 +73,12 @@ class Cat():
 # methods for losing hp, mp,...
     def lose_hp(self, value):
         if self.hp > value:
-            self.hp = self.hp - value
+            self.hp = round(self.hp - value, 1)
         else:
             self.hp = 0
             self.alive = False
     
     def increase_hp(self, value):
         temp = self.hp + value
-        self.hp = min(temp, self.maxhp)
-
-    def get_hit(self, value):
-        amount = max(value - self.defense, 0) 
+        self.hp = min(round(temp, 1), self.maxhp)
         

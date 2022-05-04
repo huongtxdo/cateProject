@@ -16,15 +16,12 @@ def main():
     cat_main.add_xp(100)
     cat_main.level_up()
     cat_list = [cat_main, brittie, scottie]
-    boss = DogFellow2("Qiqi", 5)
-    print(cat_main.get_hp(), brittie.get_hp(), scottie.get_hp())
-    boss.attack(cat_list)
-    print(cat_main.get_hp(), brittie.get_hp(), scottie.get_hp())
-    brittie.use_ability(cat_list)
-    print(cat_main.get_hp(), brittie.get_hp(), scottie.get_hp())
-    print("boss HP is ", boss.get_hp())
-    scottie.use_ability(boss)
-    print("boss HP is ", boss.get_hp())
+    dog2 = DogFellow4("dog2", 5)
+    print([cat.get_hp() for cat in cat_list])
+    dog2.attack(cat_list)
+    print([cat.get_hp() for cat in cat_list])
+    dog2.attack(cat_list)
+    print([cat.get_hp() for cat in cat_list])
 
 
     # game_over = False

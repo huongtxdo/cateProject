@@ -11,12 +11,7 @@ class DogFellow1(Dog):
         self.attackPoint = attackPoint
 
     def attack(self, cat_list):
-        alive_cat_list = []
-        for cat in cat_list:
-            if cat.is_alive():
-                alive_cat_list.append(cat)
-        target_index = random.randint(0, len(alive_cat_list)-1)
-        alive_cat_list[target_index].lose_hp(self.attackPoint)
+        self.attackRandom(cat_list)
 
 class DogFellow2(Dog):
     """
@@ -34,7 +29,8 @@ class DogFellow2(Dog):
                     target = cat
                 elif cat.get_hp() < target.get_hp():
                     target = cat
-        target.lose_hp(self.attackPoint)
+        amount = max(self.attackPoint - target.get_defense(), 0)
+        target.lose_hp(amount)
         
 class DogFellow3(Dog):
     """
@@ -52,11 +48,13 @@ class DogFellow3(Dog):
                     target = cat
                 elif cat.get_hp() > target.get_hp():
                     target = cat
-        target.lose_hp(self.attackPoint)
+        amount = max(self.attackPoint - target.get_defense(), 0)
+        target.lose_hp(amount)
 
 class DogFellow4(Dog):
     """
-    Dog4 always tries to kill ...
+    Dog4 attacks cat that can heal. 
+    If there is none, Dog4 attacks randomly
     """
     def __init__(self, name, attackPoint):
         super().__init__(name)
@@ -66,8 +64,12 @@ class DogFellow4(Dog):
         target = None
         for cat in cat_list:
             if cat.is_alive():
-                if target == None:
+                if "heal" in cat.get_ability_type():
                     target = cat
-                elif cat.get_hp() > target.get_hp():
-                    target = cat
-        target.lose_hp(self.attackPoint)
+        if target == None:
+            self.attackRandom(cat_list)
+        else:
+            amount = max(self.attackPoint - target.get_defense(), 0)
+            target.lose_hp(amount)
+
+

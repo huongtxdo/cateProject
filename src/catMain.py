@@ -17,6 +17,7 @@ class CatMain(Cat):
         self.attack = 1
         self.allies = []
         self.defense = 1
+        self.ability_type = ["main"]
 
 # fucntions for getting
 

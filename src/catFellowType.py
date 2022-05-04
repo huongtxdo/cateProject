@@ -13,7 +13,8 @@ class BritishShorthair(CatFellow):
     def __init__(self, name, catMain):
         super().__init__(name, catMain)
         self.hp_regen = self.level * 3 + random.randint(self.level, 2*self.level)
-
+        self.ability_type = ["heal"]
+ 
     def use_ability(self, cat_list):
         print("British Shorthair uses ability")
         for cat in cat_list:
@@ -28,6 +29,7 @@ class ScottishFold(CatFellow):
     def __init__(self, name, catMain):
         super().__init__(name, catMain)
         self.damage = self.get_level() * 5 + random.randint(self.level, 3*self.level)
+        self.ability_type = ["damage"]
 
     def use_ability(self, enemy):
         print("Scottish Fold uses ability")

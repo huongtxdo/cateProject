@@ -1,3 +1,5 @@
+import random
+
 class Dog():
  
     def __init__(self, name):
@@ -25,17 +27,29 @@ class Dog():
     def get_level(self):
         return self.level
 
+# attack random
+
+    def attackRandom(self, cat_list):
+        alive_cat_list = []
+        for cat in cat_list:
+            if cat.is_alive():
+                alive_cat_list.append(cat)
+        target_index = random.randint(0, len(alive_cat_list)-1)
+        target = alive_cat_list[target_index]
+        amount = max(self.attackPoint - target.get_defense(), 0)
+        target.lose_hp(amount)
+
 # methods for losing hp, mp,...
     def lose_hp(self, value):
         if self.hp > value:
-            self.hp = self.hp - value
+            self.hp = round(self.hp - value, 1)
         else:
             self.hp = 0
             self.alive = False
     
     def increase_hp(self, value):
         temp = self.hp + value
-        self.hp = min(temp, self.maxhp)
+        self.hp = min(round(temp, 1), self.maxhp)
 
     def regenerate(self):
         """
