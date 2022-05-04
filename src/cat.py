@@ -63,7 +63,7 @@ class Cat():
         """
         self.hp = self.maxmp
         self.mp = self.maxmp
-        self.revive()
+        self.revive() 
 
     def revive(self):
         self.alive = True

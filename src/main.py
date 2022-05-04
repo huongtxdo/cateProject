@@ -21,6 +21,11 @@ def main():
     print(cat_main.get_hp(), brittie.get_hp(), scottie.get_hp())
     boss.attack(cat_list)
     print(cat_main.get_hp(), brittie.get_hp(), scottie.get_hp())
+    brittie.use_ability(cat_list)
+    print(cat_main.get_hp(), brittie.get_hp(), scottie.get_hp())
+    print("boss HP is ", boss.get_hp())
+    scottie.use_ability(boss)
+    print("boss HP is ", boss.get_hp())
 
 
     # game_over = False
