@@ -29,7 +29,7 @@ class Samoyed(Dog):
         self.droppedItems = []
 
 class Bulldog(Dog):
-    #Bubu
+    #Bulbul
     def __init__(self, name):
         super().__init__(name)
         self.xp = 0
@@ -46,6 +46,9 @@ class Pomeranian(Dog):
 
 class Chihuahua(Dog):
     #Qiqi
+    """
+    Chihuahua deals 10% of the max hp of every cat
+    """
     def __init__(self, name):
         super().__init__(name)
         self.xp = 95

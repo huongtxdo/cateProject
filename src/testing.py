@@ -3,8 +3,7 @@ only used for testing functions, syntax
 """
 
 import random
-import datetime
 
-timeNow = datetime.datetime.utcnow().timestamp()
-random.seed(int(timeNow))
-print(random.randint(0,9))
+max_hp = random.randint(15,19)
+
+print(max_hp)
