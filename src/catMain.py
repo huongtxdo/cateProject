@@ -14,15 +14,15 @@ class CatMain(Cat):
         self.hp = self.maxhp
         self.coin = 0
         self.weapon = None
-        self.attack = 1
-        self.allies = []
+        self.damage = 1
         self.defense = 1
+        self.allies = []
         self.ability_type = ["main"]
 
 # fucntions for getting
 
-    def get_attack(self):
-        return self.attack
+    def get_damage(self):
+        return self.damage
     
     def get_weapon(self):
         return self.weapon
@@ -36,16 +36,13 @@ class CatMain(Cat):
     def get_allies(self):
         return self.allies
 
-    def get_defense(self):
-        return self.defense
-
 # other functions
 
     def level_up(self):
         self.level += 1
         self.maxhp += 10
         self.hp = self.maxhp
-        self.attack += 1.6
+        self.damage += 1.6
         self.defense += 1.3
         self.xp -= 100
         for ally in self.allies:
@@ -59,16 +56,16 @@ class CatMain(Cat):
 
     def equip(self, toy):
         """
-        only for catMain, equipped toys increase attack
+        only for catMain, equipped toys increase damage
         """
-        self.attack += toy.get()
+        self.damage += toy.get()
         self.weapon = toy
 
-    def use(self, gadget):
+    def use(self, gadget, cat):
         """
         only for catMain, use gadgets with various effects
         """
-        gadget(self)
+        gadget.effect(cat)
 
 # function to recruit allies
     def recruit(self, ally):

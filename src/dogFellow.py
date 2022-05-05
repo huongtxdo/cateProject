@@ -11,7 +11,8 @@ class DogFellow1(Dog):
         self.attackPoint = attackPoint
 
     def attack(self, cat_list):
-        self.attackRandom(cat_list)
+        if not self.attackShield(cat_list):
+            self.attackRandom(cat_list)
 
 class DogFellow2(Dog):
     """
@@ -22,15 +23,8 @@ class DogFellow2(Dog):
         self.attackPoint = attackPoint
 
     def attack(self, cat_list):
-        target = None
-        for cat in cat_list:
-            if cat.is_alive():
-                if target == None:
-                    target = cat
-                elif cat.get_hp() < target.get_hp():
-                    target = cat
-        amount = max(self.attackPoint - target.get_defense(), 0)
-        target.lose_hp(amount)
+        if not self.attackShield(cat_list):
+            self.attackLowerHP(cat_list)
         
 class DogFellow3(Dog):
     """
@@ -41,15 +35,8 @@ class DogFellow3(Dog):
         self.attackPoint = attackPoint
 
     def attack(self, cat_list):
-        target = None
-        for cat in cat_list:
-            if cat.is_alive():
-                if target == None:
-                    target = cat
-                elif cat.get_hp() > target.get_hp():
-                    target = cat
-        amount = max(self.attackPoint - target.get_defense(), 0)
-        target.lose_hp(amount)
+        if not self.attackShield(cat_list):
+            self.attackHighestHP(cat_list)
 
 class DogFellow4(Dog):
     """
@@ -61,15 +48,8 @@ class DogFellow4(Dog):
         self.attackPoint = attackPoint
 
     def attack(self, cat_list):
-        target = None
-        for cat in cat_list:
-            if cat.is_alive():
-                if "heal" in cat.get_ability_type():
-                    target = cat
-        if target == None:
-            self.attackRandom(cat_list)
-        else:
-            amount = max(self.attackPoint - target.get_defense(), 0)
-            target.lose_hp(amount)
+        if not self.attackShield(cat_list):
+            if not self.attackHealer(cat_list):
+                self.attackRandom(cat_list)
 
 

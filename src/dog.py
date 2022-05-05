@@ -27,7 +27,7 @@ class Dog():
     def get_level(self):
         return self.level
 
-# attack random
+# attack type
 
     def attackRandom(self, cat_list):
         alive_cat_list = []
@@ -38,6 +38,52 @@ class Dog():
         target = alive_cat_list[target_index]
         amount = max(self.attackPoint - target.get_defense(), 0)
         target.lose_hp(amount)
+
+    def attackLowerHP(self, cat_list):
+        target = None
+        for cat in cat_list:
+            if cat.is_alive():
+                if target == None:
+                    target = cat
+                elif cat.get_hp() < target.get_hp():
+                    target = cat
+        amount = max(self.attackPoint - target.get_defense(), 0)
+        target.lose_hp(amount)
+
+    def attackHighestHP(self, cat_list):
+        target = None
+        for cat in cat_list:
+            if cat.is_alive():
+                if target == None:
+                    target = cat
+                elif cat.get_hp() > target.get_hp():
+                    target = cat
+        amount = max(self.attackPoint - target.get_defense(), 0)
+        target.lose_hp(amount)
+    
+    def attackHealer(self, cat_list):
+        target = None
+        for cat in cat_list:
+            if cat.is_alive():
+                if "heal" in cat.get_ability_type():
+                    target = cat
+                    break
+        if target:
+            amount = max(self.attackPoint - target.get_defense(), 0)
+            target.lose_hp(amount)
+            return True
+    
+    def attackShield(self, cat_list):
+        target = None
+        for cat in cat_list:
+            if cat.is_alive():
+                if "shield" in cat.get_ability_type():
+                    target = cat
+                    break
+        if target:
+            amount = max(self.attackPoint - target.get_defense(), 0)
+            target.lose_hp(amount)
+            return True
 
 # methods for losing hp, mp,...
     def lose_hp(self, value):

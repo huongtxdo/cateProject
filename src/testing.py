@@ -4,6 +4,8 @@ only used for testing functions, syntax
 
 import random
 
-max_hp = random.randint(15,19)
+a = []
 
-print(max_hp)
+if "a" not in a:
+    a.append("a")
+    print(a)

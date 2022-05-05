@@ -6,6 +6,7 @@ from item import *
 from itemDrink import *
 from itemFood import *
 from itemToy import *
+from itemGadget import *
 
 def main():
     cat_main = CatMain("")
@@ -16,12 +17,14 @@ def main():
     cat_main.add_xp(100)
     cat_main.level_up()
     cat_list = [cat_main, brittie, scottie]
-    dog2 = DogFellow4("dog2", 5)
+    brittie.lose_hp(30)
     print([cat.get_hp() for cat in cat_list])
-    dog2.attack(cat_list)
+    blanket = Blanket()
+    cat_main.use(blanket, cat_main)
     print([cat.get_hp() for cat in cat_list])
-    dog2.attack(cat_list)
-    print([cat.get_hp() for cat in cat_list])
+
+
+
 
 
     # game_over = False

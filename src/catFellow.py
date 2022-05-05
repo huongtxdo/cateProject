@@ -14,7 +14,7 @@ class CatFellow(Cat):
         super().__init__(name)
         self.maxhp = random.randint(15,18)
         self.level = catMain.get_level()
-        self.defense = 1.1 * catMain.get_defense()/1.3
+        self.defense = round(1.1 * catMain.get_defense()/1.3,1)
         self.hp = self.maxhp
         self.maxmp = 10
         self.mp = self.maxmp

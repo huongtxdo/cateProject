@@ -4,6 +4,7 @@ class Item():
         self.name = name
         self.description = self.item_description[name]
         self.value = self.item_value[name]
+        self.stock = 1
 
 # functions for getting
 
@@ -15,3 +16,12 @@ class Item():
 
     def get(self):
         return self.value
+
+    def get_stock(self):
+        return self.stock
+
+    def increase_stock(self):
+        self.stock += 1
+
+    def decrease_stock(self):
+        self.stock = max(0, self.stock - 1)

@@ -2,6 +2,7 @@ class Cat():
 
     def __init__(self, name):
         self.set_name(name)
+        self.damage = 0
         self.alive = True 
 
 # all the methods that return information
@@ -28,6 +29,9 @@ class Cat():
 
     def get_ability_type(self):
         return self.ability_type
+    
+    def get_damage(self):
+        return self.damage
 
     def is_alive(self):
         return self.alive
@@ -39,28 +43,40 @@ class Cat():
         else:
             self.name = name
 
+    def add_ability_type(self, ability):
+        if ability not in self.ability_type:
+            self.ability_type.append(ability)
+
+    def remove_ability_type(self, ability):
+        if ability in self.ability_type:
+            self.ability_type.remove(ability)
+
 # methods to use items
     def eat(self, food):
         """
         heal the cat
         """
-        temp = self.hp + food.get()
-        self.hp = min(temp, self.maxhp)
+        if self.is_alive() and food.get_stock() > 0:
+            temp = self.hp + food.get()
+            self.hp = min(temp, self.maxhp)
+            food.decrease_stock()
 
     def drink(self, drink):
         """
         regenerate cat's mana
         """
-        temp = self.mp + drink.get()
-        self.mp = min(temp, self.maxmp)
+        if self.is_alive() and drink.get_stock() > 0:
+            temp = self.mp + drink.get()
+            self.mp = min(temp, self.maxmp)
+            drink.decrease_stock()
 
     def regenerate(self):
         """
         Return the cat to the original state
         """
+        self.revive() 
         self.hp = self.maxhp
         self.mp = self.maxmp
-        self.revive() 
 
     def revive(self):
         self.alive = True
