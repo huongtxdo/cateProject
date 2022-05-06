@@ -50,6 +50,7 @@ class Pomeranian(Dog):
         self.maxhp = 350
         self.droppedItems = []
         self.attackPoint = 20
+        self.ability_type = ["boss"]
 
     def attack(self, cat_list):
         target = None
@@ -83,6 +84,7 @@ class Chihuahua(Dog):
         self.hp = self.maxhp
         self.attackPoint = 20
         self.attack = 10
+        self.ability_type = ["boss"]
         self.droppedItems = ["Key to the Cate kindom"]
     
     def attack(self, cat_list):

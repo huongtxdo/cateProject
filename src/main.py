@@ -12,16 +12,17 @@ def main():
     cat_main = CatMain("")
     brittie = BritishShorthair("Brittie", cat_main)
     scottie = ScottishFold("Scottie", cat_main)
+
+    qiqi = Chihuahua("Qiqi")
+    dog1 = DogFellow1("Dog 1", 10)
+    dog2 = DogFellow2("Dog 2", 8)
     
     cat_main.add_coin(100)
     cat_main.add_xp(100)
     cat_main.level_up()
     cat_list = [cat_main, brittie, scottie]
-    brittie.lose_hp(30)
-    print([cat.get_hp() for cat in cat_list])
-    blanket = Blanket()
-    cat_main.use(blanket, cat_main)
-    print([cat.get_hp() for cat in cat_list])
+    dog_list = [qiqi, dog1, dog2]
+    
 
 
 

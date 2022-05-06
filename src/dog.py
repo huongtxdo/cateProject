@@ -7,6 +7,7 @@ class Dog():
         self.defense = 0
         self.attackPoint = 0
         self.alive = True
+        self.ability_type = ["dog"]
 
 # all the methods that return information
     def get_name(self): 
