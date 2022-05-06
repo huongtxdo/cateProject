@@ -1,0 +1,138 @@
+[33mcommit c505b0b9f302d37231745146fa3cc6ef19976a6b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Thu May 5 05:06:06 2022 +0300
+
+    complete all dogFellow and 2 of dogBoss
+
+[33mcommit 204af508cb1fafc7dea67928c900b623f6258927[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Wed May 4 23:20:41 2022 +0300
+
+    complete dogFellow class
+
+[33mcommit edfae49ce34e11ceec5bcf9146fd22ec973b5615[m
+Merge: a94ff44 184c277
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Wed May 4 05:13:50 2022 +0300
+
+    resolve conflicts
+
+[33mcommit a94ff447dd7fac9ac471a2ff53df40c9b195f934[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Wed May 4 05:10:42 2022 +0300
+
+    commit before merging
+
+[33mcommit 184c277a34c2de4b582f2508f10c7842f2676c80[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Mon May 2 20:49:15 2022 +0300
+
+    fix some functions
+
+[33mcommit 55c5aae2149322a4702386addc26a9c08f8ba5b6[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Mon May 2 19:40:33 2022 +0300
+
+    fix functions
+
+[33mcommit 9f981e30b163397bc8b9c0af7088bc06dc5c343e[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Mon May 2 13:56:15 2022 +0300
+
+    add stuff
+
+[33mcommit 00adefa05a7c35e3e02f87aeed9bbf1f82bf9608[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Wed Apr 27 17:40:26 2022 +0300
+
+    fix errors
+
+[33mcommit 6aafa3b27b596f6789fc6efa521f6d0e14f0f599[m[33m ([m[1;32mbackup-master[m[33m)[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Wed Apr 27 15:00:00 2022 +0300
+
+    fix functions not working
+
+[33mcommit 38dca21af654d4772022a8fd5cfc6984ce30dc11[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Thu Apr 21 17:46:12 2022 +0300
+
+    forgot to save 1 file
+
+[33mcommit 084ce31b6fae4ec317df099b392d9a4403153251[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Thu Apr 21 17:45:07 2022 +0300
+
+    end of session on laptop, commit to move changes to pc
+
+[33mcommit df081d50662d3166b8ff3aa746c58b04af91f50c[m
+Author: huongtxdo <huong.tx.do@gmail.com>
+Date:   Thu Apr 21 16:17:23 2022 +0300
+
+    combine functions from subclass to main class
+
+[33mcommit b662a0644209c878c8b2c2bf5fd5a357cdf9b369[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Thu Apr 21 11:04:06 2022 +0300
+
+    add a little bit in every file
+
+[33mcommit 2b31255e3d725962274cdbb0b123d0c57c453069[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Sat Apr 16 03:44:41 2022 +0300
+
+    changes to README.md
+
+[33mcommit d8961a7d1f30bcfa5a8457a7cceb6cea7fefcfce[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Sat Apr 16 03:31:46 2022 +0300
+
+    fix some functions and add some new files
+
+[33mcommit 8bcbc69af87cb917acd8c83fad25d7d728ebd8f7[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Fri Mar 25 16:46:46 2022 +0200
+
+    change name code to src and document to doc
+
+[33mcommit d89d81cbbdf5f998e94085ba35ecaab69fce093a[m
+Author: Huong <huong.x.do@aalto.fi>
+Date:   Fri Mar 25 08:33:03 2022 +0200
+
+    first check point commit
+
+[33mcommit 5930744bdc48091931b1b19bd89fab401ee6026e[m
+Author: Do Huong <huong.x.do@aalto.fi>
+Date:   Fri Feb 25 02:40:08 2022 +0200
+
+    Upload New File
+
+[33mcommit e193a25714d66a484830712e7d831ce3145113e9[m
+Author: Do Huong <huong.x.do@aalto.fi>
+Date:   Fri Feb 25 02:39:56 2022 +0200
+
+    Delete ProjectPlan.pdf
+
+[33mcommit 6c0dadbdf966f78c82acf0f89b17f50c1cd451bb[m
+Author: Do Huong <huong.x.do@aalto.fi>
+Date:   Fri Feb 25 02:39:40 2022 +0200
+
+    Add new directory
+
+[33mcommit 52fae93d92baccbc4432103abddbd441bc522c10[m
+Author: Do Huong <huong.x.do@aalto.fi>
+Date:   Fri Feb 25 02:39:17 2022 +0200
+
+    Add new directory
+
+[33mcommit 839b8e5a8aa5cb9e69cc6dd677733e14e05e877f[m
+Author: Do Huong <huong.x.do@aalto.fi>
+Date:   Fri Feb 25 02:37:40 2022 +0200
+
+    Project plan for strategy game
+
+[33mcommit 6db0a43a00b31cc4a84914da16b274747efa38ca[m
+Author: Do Huong <huong.x.do@aalto.fi>
+Date:   Fri Feb 25 02:34:54 2022 +0200
+
+    Initial commit
