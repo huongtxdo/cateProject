@@ -1,14 +1,11 @@
 from PyQt5 import QtWidgets, QtCore
 from uiGraphicsItem import *
 from uiCoordinates import *
+from uiBattle import *
 
 
 class GuiBattle(QtWidgets.QMainWindow):
-    """
-    The class GUI handles the drawing of a animalWorld and allows user to
-    interact with it.
-    """
-
+    
     def __init__(self, battle, square_size):
         super().__init__()
         self.setCentralWidget(QtWidgets.QWidget()) # QMainWindown must have a centralWidget to be able to add layouts

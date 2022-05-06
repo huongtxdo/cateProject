@@ -2,10 +2,7 @@ class Item():
 
     def __init__(self, name):
         self.name = name
-        self.description = self.item_description[name]
-        self.value = self.item_value[name]
-        self.price = self.item_price[name]
-        self.stock = 1
+        self.stock = 0
 
 # functions for getting
 
@@ -22,10 +19,15 @@ class Item():
         return self.value
 
     def get_stock(self):
-        return self.stock
+        return self.get_stock
+
+# functions for setting
 
     def increase_stock(self):
         self.stock += 1
 
     def decrease_stock(self):
         self.stock = max(0, self.stock - 1)
+
+                
+

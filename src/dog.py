@@ -10,6 +10,8 @@ class Dog():
         self.world = None 
         self.location = None
         self.ability_type = ["dog"]
+        self.enemies = []
+        self.allies = [self]
 
 # all the methods that return information
     def get_name(self): 
@@ -36,6 +38,15 @@ class Dog():
     def get_ability_type(self):
         return self.ability_type
 
+    def get_target(self):
+        return self.target
+
+    def get_enemies(self):
+        return self.enemies
+
+    def get_allies(self):
+        return self.allies
+
     def is_alive(self):
         return self.alive
 
@@ -46,8 +57,7 @@ class Dog():
         for cat in cat_list:
             if cat.is_alive():
                 alive_cat_list.append(cat)
-        target_index = random.randint(0, len(alive_cat_list)-1)
-        target = alive_cat_list[target_index]
+        target = random.choice([alive_cat_list])
         amount = max(self.attackPoint - target.get_defense(), 0)
         target.lose_hp(amount)
 
@@ -96,6 +106,13 @@ class Dog():
             amount = max(self.attackPoint - target.get_defense(), 0)
             target.lose_hp(amount)
             return True
+
+#methods for appending allies/enemies list
+    def add_ally(self, dog):
+        self.allies.append(dog)
+
+    def add_enemy(self, cat):
+        self.enemies.append(cat)
 
 # methods for losing hp, mp,...
     def lose_hp(self, value):

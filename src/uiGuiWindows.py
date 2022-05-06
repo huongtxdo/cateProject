@@ -5,6 +5,10 @@ only used for testing functions, syntax
 import sys
 from PyQt5 import QtWidgets, QtGui, QtCore
 from uiGraphicsItem import *
+from itemFood import *
+from itemDrink import *
+from itemToy import *
+from catMain import *
 
 class Color(QtWidgets.QWidget):
 
@@ -28,47 +32,43 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.w = None
-        self.z = None
         self.setCentralWidget(QtWidgets.QWidget())
         self.setWindowTitle("Make a merry Cate great again!")
         self.setGeometry(0, 0, 702, 550)
-        self.cat_container = []
-        self.item_container = []
         self.initUI()
-
-    def add_cat(self, cat):
-        self.cat_container.append(cat)
     
     def initUI(self):        
-    # Overall        
+    # Create page layout vertically; button layout horizontally; 
+    # stack layout as a stack; and a horizontal box "To battle" at the end      
         pagelayout = QtWidgets.QVBoxLayout()
         button_layout = QtWidgets.QHBoxLayout()
         self.stacklayout = QtWidgets.QStackedLayout()
         button_layout2 = QtWidgets.QHBoxLayout()
 
+    # Add button, stack, and battle layouts to the page layout
         pagelayout.addLayout(button_layout)
         pagelayout.addLayout(self.stacklayout)
         pagelayout.addLayout(button_layout2)
 
-    # Button Troops
+    # Button for Troops
         button = QtWidgets.QPushButton("Troops")
         button.pressed.connect(self.activate_tab_1)
         button_layout.addWidget(button)
         self.stacklayout.addWidget(Troop())
 
-    # Button Inventory
+    # Button for Inventory
         button = QtWidgets.QPushButton("Inventory")
         button.pressed.connect(self.activate_tab_2)
         button_layout.addWidget(button)
         self.stacklayout.addWidget(Color("white"))
 
-    # Button Shop
+    # Button for Shop
         button = QtWidgets.QPushButton("Shop")
         button.pressed.connect(self.activate_tab_3)
         button_layout.addWidget(button)
         self.stacklayout.addWidget(Shop())
 
-    # Button preparation
+    # Button for battle preparation
         button = QtWidgets.QPushButton("Prepare for battle")
         button.pressed.connect(self.activate_tab_4)
         button_layout.addWidget(button)
@@ -78,7 +78,7 @@ class MainWindow(QtWidgets.QMainWindow):
         button = QtWidgets.QPushButton("To battle!")
         button.clicked.connect(self.show_battle_window)
         button_layout2.addWidget(button)
-        self.setCentralWidget(button)
+        #self.setCentralWidget(button)
 
         # Add widget with the previous defined page layout~
         # to the central widget
@@ -97,14 +97,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def activate_tab_4(self):
         self.stacklayout.setCurrentIndex(3)
-
-    def show_troop_window(self):
-        if not self.z:
-            self.z = Troop()
-            self.z.show()
-        else:
-            self.z.close()
-            self.z = None
     
     def show_battle_window(self, checked):
         if not self.w:
@@ -163,8 +155,9 @@ class Troop(QtWidgets.QWidget):
     
 class Shop(QtWidgets.QWidget):
     def __init__(self):
-        super().__init__()
+        super().__init__()        
         self.layout = QtWidgets.QGridLayout()
+
     #add food to shop
         with open('1food.txt') as f:
             lines = f.readlines()
@@ -172,6 +165,7 @@ class Shop(QtWidgets.QWidget):
             for line in lines:
                 name, value, description, price = line.split("/")
                 self.button = QtWidgets.QPushButton("{} - {} hp: Cate coin {}".format(name, value, price), self)
+                #self.button.pressed.connect(self.cat_main.buy(Food(name)))
                 self.layout.addWidget(self.button, 0 ,temp)
                 temp+=1
     #add drink to shop
@@ -181,7 +175,8 @@ class Shop(QtWidgets.QWidget):
             for line in lines:
                 name, value, description, price = line.split("/")
                 self.button = QtWidgets.QPushButton("{} - {} mp: Cate coin {}".format(name, value, price), self)
-                self.layout.addWidget(self.button, 1,temp)
+                #self.button.pressed.connect(self.at_main.buy(Drink(name)))
+                self.layout.addWidget(self.button, 1 ,temp)
                 temp+=1
     #add toy to shop
         with open('1toy.txt') as f:
@@ -190,10 +185,17 @@ class Shop(QtWidgets.QWidget):
             for line in lines:
                 name, value, description, price = line.split("/")
                 self.button = QtWidgets.QPushButton("{} - {} mp: Cate coin {}".format(name, value, price), self)
+                #self.button.pressed.connect(self.cat_main.buy(Toy(name)))
                 self.layout.addWidget(self.button, 2,temp)
                 temp+=1     
-                   
+        
         self.setLayout(self.layout)
+                   
+    def set_cat_main(self):
+        if not self.cat_main:
+            self.cat_main = CatMain("")
+            return self.cat_main
+
 
 appMain = QtWidgets.QApplication(sys.argv)
 window = MainWindow()

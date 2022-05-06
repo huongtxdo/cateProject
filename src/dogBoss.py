@@ -52,7 +52,7 @@ class Pomeranian(Dog):
         self.attackPoint = 20
         self.ability_type = ["boss"]
 
-    def attack(self, cat_list):
+    def use_ability(self, cat_list):
         target = None
         for cat in cat_list:
             if cat.is_alive():
@@ -87,7 +87,7 @@ class Chihuahua(Dog):
         self.ability_type = ["boss"]
         self.droppedItems = ["Key to the Cate kindom"]
     
-    def attack(self, cat_list):
+    def use_ability(self, cat_list):
         for cat in cat_list:
             if cat.is_alive():
                 amount = cat.get_maxhp()/20

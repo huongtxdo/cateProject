@@ -10,7 +10,7 @@ class DogFellow1(Dog):
         super().__init__(name)
         self.attackPoint = attackPoint
 
-    def attack(self, cat_list):
+    def use_ability(self, cat_list):
         if not self.attackShield(cat_list):
             self.attackRandom(cat_list)
 
@@ -22,7 +22,7 @@ class DogFellow2(Dog):
         super().__init__(name)
         self.attackPoint = attackPoint
 
-    def attack(self, cat_list):
+    def use_ability(self, cat_list):
         if not self.attackShield(cat_list):
             self.attackLowerHP(cat_list)
         
@@ -34,7 +34,7 @@ class DogFellow3(Dog):
         super().__init__(name)
         self.attackPoint = attackPoint
 
-    def attack(self, cat_list):
+    def use_ability(self, cat_list):
         if not self.attackShield(cat_list):
             self.attackHighestHP(cat_list)
 
@@ -47,7 +47,7 @@ class DogFellow4(Dog):
         super().__init__(name)
         self.attackPoint = attackPoint
 
-    def attack(self, cat_list):
+    def use_ability(self, cat_list):
         if not self.attackShield(cat_list):
             if not self.attackHealer(cat_list):
                 self.attackRandom(cat_list)

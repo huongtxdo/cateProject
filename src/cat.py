@@ -1,3 +1,5 @@
+import random 
+
 class Cat():
 
     def __init__(self, name):
@@ -6,6 +8,8 @@ class Cat():
         self.alive = True 
         self.world = None 
         self.location = None
+        self.enemies = []
+        self.allies = [self]
 
 # all the methods that return information
     def get_name(self):
@@ -38,6 +42,12 @@ class Cat():
     def get_location(self):
         return self.location
 
+    def get_enemies(self):
+        return self.enemies
+
+    def get_allies(self):
+        return self.allies
+
     def is_alive(self):
         return self.alive
 
@@ -47,6 +57,12 @@ class Cat():
             self.name = "MeowLead"   
         else:
             self.name = name
+
+    def add_ally(self, cat):
+        self.allies.append(cat)
+
+    def add_enemy(self, dog):
+        self.enemies.append(dog)
 
     def add_ability_type(self, ability):
         if ability not in self.ability_type:

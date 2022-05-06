@@ -1,5 +1,7 @@
 import random
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QApplication, QPushButton
+from PyQt5.QtCore import QObject
+import sys
 
 class Round():
 
@@ -8,7 +10,6 @@ class Round():
         self.turn = 0
         self.cat_list = cat_list
         self.dog_list = dog_list
-        self.cat_first = False
 
     def end(self):
         return self.round_end
@@ -39,18 +40,28 @@ class Round():
             self.cat_first = True
 
     def determine_turn_list(self, cat_list, dog_list):
-        cat_alive = [ cat.is_alive() for cat in cat_list ]
-        dog_alive = [ dog.is_alive() for dog in dog_list ]
+        cat_alive = []
+        dog_alive = []
+        for cat in cat_list:
+            if cat.is_alive():
+                cat_alive.append(cat)
+        for dog in dog_list:
+            if dog.is_alive():
+                dog_alive.append(dog)
         num = min(len(cat_alive), len(dog_alive))
         turn_list = [None]*(num*2) 
-        if self.cat_first:
-            turn_list[::2] = cat_alive[:num]
-            turn_list[1::2] = dog_alive[:num]
-            turn_list.extend(cat_alive[num:])
-            turn_list.extend(dog_alive[num:])
-        else:
-            turn_list[::2] = dog_alive[:num]
-            turn_list[1::2] = cat_alive[:num]
-            turn_list.extend(dog_alive[num:])
-            turn_list.extend(cat_alive[num:])
-        return turn_list
+        turn_list[::2] = cat_alive[:num]
+        turn_list[1::2] = dog_alive[:num]
+        turn_list.extend(cat_alive[num:])
+        turn_list.extend(dog_alive[num:])
+
+        for animal in turn_list:
+            if "main" in animal.get_ability_type():
+                for dog in dog_alive:
+                    app = QApplication(sys.argv)
+                    button = QPushButton(dog.get_name())
+                    button.pressed.connect(animal.attack(dog))                                                                                         
+                    sys.exit(app.exec_())
+                    break
+            elif "heal" in cat.get_ability_type():
+                cat.use_ability(cat_list)

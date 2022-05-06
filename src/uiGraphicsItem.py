@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 class GraphicsItem(QtWidgets.QGraphicsPolygonItem):
 
@@ -14,30 +15,20 @@ class GraphicsItem(QtWidgets.QGraphicsPolygonItem):
         self.setBrush(brush)
         self.constructTriangleVertices()
         self.updateAll()
-
     
     def constructTriangleVertices(self):
-        # Create a new QPolygon object
         triangle = QtGui.QPolygonF()
 
-        # Add the corners of a triangle to the the polygon object
-        triangle.append(QtCore.QPointF(self.square_size/2, 0)) # Tip
-        triangle.append(QtCore.QPointF(0, self.square_size)) # Bottom-left
-        triangle.append(QtCore.QPointF(self.square_size, self.square_size)) # Bottom-right
-        triangle.append(QtCore.QPointF(self.square_size/2, 0)) # Tip
-
-        # Set this newly created polygon as this Item's polygon.
+        triangle.append(QtCore.QPointF(self.square_size/2, 0))
+        triangle.append(QtCore.QPointF(0, self.square_size))
+        triangle.append(QtCore.QPointF(self.square_size, self.square_size))
+        triangle.append(QtCore.QPointF(self.square_size/2, 0)) 
         self.setPolygon(triangle)
-
-        # Set the origin of transformations to the center of the triangle.
-        # This makes it easier to rotate this Item.
         self.setTransformOriginPoint(self.square_size/2, self.square_size/2)
-
 
     def updateAll(self):
         self.updatePosition()
         self.updateColor()
-
 
     def updatePosition(self):
         animal_location = self.animal.get_location()
@@ -59,20 +50,16 @@ class GraphicsItem(QtWidgets.QGraphicsPolygonItem):
         else:
             self.setBrush(deep_sky_blue)
 
+    # def mousePressEvent(self, *args, **kwargs):
 
-    def mousePressEvent(self, *args, **kwargs):
-        if not self.world.subject:
-            self.world.subject = self.animal
-        else:
-            self.world.subject.attack(self.animal)
-        self.world.subject = None
+    #     # if self.world.subject==None:
+    #     #     self.world.subject = self.animal
+    #     # self.animal.target = QtWidgets.QPushButton(self)
+    #     # self.animal.target.clicked.connect(self.animal.use_ability(self.animal.target))
+    #     # #self.animal.use_ability(self.animal.get_enemies())
+    #     # self.world.subject = None
 
-        # if "main" in self.animal.get_ability_type():
-        #     target = mousePressEvent()
-        #     self.animal.attack(target)
-        # # elif "boss" in self.animal.get_ability_type():
-        # #     self.setBrush(crimson_red)
-        # # elif "dog" in self.animal.get_ability_type():
-        # #     self.setBrush(tomato_red)
-        # # else:
-        # #     self.setBrush(deep_sky_blue)
+    #     if "heal" in self.animal.get_ability_type():
+    #         self.animal.use_ability(self.animal.get_allies())
+    #     elif "boss" in self.animal.get_ability_type() or "dog" in self.animal.get_ability_type():
+    #         self.animal.use_ability(self.animal.get_enemies())

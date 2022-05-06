@@ -17,6 +17,7 @@ class CatMain(Cat):
         self.damage = 1
         self.defense = 1
         self.allies = []
+        self.inventory = []
         self.ability_type = ["main"]
 
 # fucntions for getting
@@ -50,6 +51,12 @@ class CatMain(Cat):
     
     def add_coin(self, value):
         self.coin += value
+
+    def buy(self, item):
+        if self.coin >= item.price:
+            self.inventory.append(item)
+            item.increase_stock()
+            self.coin -= item.get_price()
 
     def add_xp(self, value):
         self.xp += value 

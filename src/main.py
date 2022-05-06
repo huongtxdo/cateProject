@@ -24,6 +24,7 @@ def main():
     current_game = Game()
     while not current_game.end():
         # Player can check their troops, inventory, and go shopping
+        # Adding to inventory and shopping is not functionable
         appMain = QtWidgets.QApplication(sys.argv)
         window = MainWindow()
         window.show()
@@ -46,7 +47,7 @@ def main():
         dog_list = [qiqi, dog1, dog2]
 
         current_round = Round(cat_list, dog_list)
-        current_round.to_battle()
+        current_round.to_battle() 
         while not current_round.end():
             test_battle = Battle()
             test_battle.add_animal(cat_main,Coordinates(2,3))
@@ -57,8 +58,9 @@ def main():
             test_battle.add_animal(dog1,Coordinates(7,1))
             test_battle.add_animal(dog2,Coordinates(7,5))
 
-            turn_list = current_round.determine_turn_list(cat_list, dog_list)
-            
+            #trouble with executing determine_turn_list in gameRound()
+
+            #turn_list = current_round.determine_turn_list(cat_list, dog_list)
 
             global app
             app = QApplication(sys.argv)
