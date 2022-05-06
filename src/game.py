@@ -4,11 +4,14 @@ class Game():
         self.game_over = False
         self.round = 0
 
-    def game_end(self):
-        
+    def end_game(self):
+        self.game_over = True
     
     def new_round(self):
         self.round += 1
+
+    def end(self):
+        return self.game_over     
 
     def check_game_over(self, cat_list, dog_list):
         cat_alive = [ cat.is_alive() for cat in cat_list ]

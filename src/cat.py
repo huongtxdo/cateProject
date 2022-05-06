@@ -4,6 +4,8 @@ class Cat():
         self.set_name(name)
         self.damage = 0
         self.alive = True 
+        self.world = None 
+        self.location = None
 
 # all the methods that return information
     def get_name(self):
@@ -32,6 +34,9 @@ class Cat():
     
     def get_damage(self):
         return self.damage
+
+    def get_location(self):
+        return self.location
 
     def is_alive(self):
         return self.alive
@@ -98,3 +103,16 @@ class Cat():
         temp = self.hp + value
         self.hp = min(round(temp, 1), self.maxhp)
         
+# GUI related
+
+    def get_world(self):
+        return self.world
+    
+    def set_world(self, world, location):
+        target_square = world.get_square(location)
+        if not target_square.is_empty() or self.get_world() is not None:
+            return False
+        else:
+            self.world = world
+            self.location = location
+            return True

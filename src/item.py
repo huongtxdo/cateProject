@@ -4,6 +4,7 @@ class Item():
         self.name = name
         self.description = self.item_description[name]
         self.value = self.item_value[name]
+        self.price = self.item_price[name]
         self.stock = 1
 
 # functions for getting
@@ -13,6 +14,9 @@ class Item():
 
     def get_description(self):
         return self.description
+
+    def get_price(self):
+        return self.price
 
     def get(self):
         return self.value

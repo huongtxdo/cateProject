@@ -61,6 +61,10 @@ class CatMain(Cat):
         self.damage += toy.get()
         self.weapon = toy
 
+    def attack(self, target):
+        amount = max(self.damage - target.get_defense(), 0)
+        target.lose_hp(amount)
+
     def use(self, gadget, cat):
         """
         only for catMain, use gadgets with various effects

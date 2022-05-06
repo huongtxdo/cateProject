@@ -7,11 +7,13 @@ class Dog():
         self.defense = 0
         self.attackPoint = 0
         self.alive = True
+        self.world = None 
+        self.location = None
         self.ability_type = ["dog"]
 
 # all the methods that return information
     def get_name(self): 
-        return self.name
+        return self.name 
 
     def get_maxhp(self):
         return self.maxhp
@@ -27,6 +29,15 @@ class Dog():
 
     def get_level(self):
         return self.level
+
+    def get_location(self):
+        return self.location
+    
+    def get_ability_type(self):
+        return self.ability_type
+
+    def is_alive(self):
+        return self.alive
 
 # attack type
 
@@ -104,3 +115,17 @@ class Dog():
         """
         self.hp = self.maxmp
         self.mp = self.maxmp
+
+# GUI related
+
+    def get_world(self):
+        return self.world
+    
+    def set_world(self, world, location):
+        target_square = world.get_square(location)
+        if not target_square.is_empty() or self.get_world() is not None:
+            return False
+        else:
+            self.world = world
+            self.location = location
+            return True
